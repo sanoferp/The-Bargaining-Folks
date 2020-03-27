@@ -1,0 +1,69 @@
+<h1 style="text-align:center">
+  The Bargaining Folks
+</h1>
+<div class="login">
+  <h2 class="login-header">Sell your item here</h2>
+  <form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.id.errors }">
+      <input type="id" placeholder="id" formControlName="id" value="1" required [(ngModel)]="product.id">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.id.errors" class="help-block">
+      <div *ngIf="formControls.id.errors.required">id</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.item.errors }">
+      <input type="item" placeholder="Item" formControlName="item" value="Item"
+      required [(ngModel)]="product.item">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.item.errors" class="help-block">
+      <div *ngIf="formControls.item.errors.required">Item</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.des.errors }">
+      <textarea type="des" placeholder="Description" formControlName="des" rows="3" 
+      value="Some description" required [(ngModel)]="product.des"></textarea>
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.des.errors" class="help-block">
+      <div *ngIf="formControls.des.errors.required">Description</div>
+    </div>
+
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.price.errors }">
+      <input id="price" type="text" class="form-control" aria-describedby="netamount-desc" placeholder="Price"
+        formControlName="price" value="125" required [(ngModel)]="product.price">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.price.errors" class="help-block">
+      <div *ngIf="formControls.price.errors.required">price</div>
+    </div>
+
+    <p>
+      <select formControlName="category" class="category" required [(ngModel)]="product.category">
+        <option disabled>Select category</option>
+        <option >Select category</option>
+        <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+      </select>
+    </p>
+
+    <p>
+      <select formControlName="quality"  class="quality" required [(ngModel)]="product.quality">
+        <option disabled>Select quality</option>
+       <option *ngFor="let qual of qualities" [value]="qual.id">{{qual.name}}</option>
+      </select>
+    </p>
+    
+     <!-- <div class="form-group">
+      <input type="file"
+             id="file"
+           (change)="handleFileInput($event.target.files)">
+  </div-->
+
+    <p>
+      <input type="submit" value="Sell">
+    </p>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<h1 style="text-align:center">
+    The Bargaining Folks
+  </h1>
+  
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>item</th>
+            <th>des</th>
+            <th>Price</th>
+            <th>category</th>
+            <th>quality</th>
+            <th>quantity</th>
+        </tr>
+        
+        <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.item}}</td>
+            <td>{{product.des}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.quality}}</td>
+            <td>
+                <input id="quantity" type="text" value="0" required [(ngModel)]="product.quantity">
+            </td>
+            <td>
+                <a [routerLink]="['/cart', { id:product.id , quantity:product.quantity }]">Add to cart</a>
+            </td>
+        </tr>
+    </table>
