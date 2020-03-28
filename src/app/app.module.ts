@@ -13,6 +13,7 @@ import { BuyingComponent } from './buying/buying.component';
 import { SellingComponent } from './selling/selling.component';
 import { CartComponent } from './cart/cart.component';
 import { GreetingComponent } from './greeting/greeting.component';
+import { UserlistComponent } from './userlist/userlist.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { GreetingComponent } from './greeting/greeting.component';
     BuyingComponent,
     SellingComponent,
     CartComponent,
-    GreetingComponent
+    GreetingComponent,
+    UserlistComponent
     
     
   ],

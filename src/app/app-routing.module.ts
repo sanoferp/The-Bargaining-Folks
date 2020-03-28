@@ -8,6 +8,8 @@ import { BuyingComponent } from './buying/buying.component';
 import { SellingComponent } from './selling/selling.component';
 import { CartComponent } from './cart/cart.component';
 import { GreetingComponent } from './greeting/greeting.component';
+import { UserlistComponent } from './userlist/userlist.component';
+
 
 
 const routes: Routes = [
@@ -18,6 +20,7 @@ const routes: Routes = [
   { path: 'selling', component: SellingComponent },
   { path: 'cart', component: CartComponent },
   { path: 'greeting', component: GreetingComponent },
+  { path: 'userlist', component: UserlistComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
 ];
 
