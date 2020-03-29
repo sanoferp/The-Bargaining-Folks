@@ -14,6 +14,7 @@ import { SellingComponent } from './selling/selling.component';
 import { CartComponent } from './cart/cart.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { UserlistComponent } from './userlist/userlist.component';
+import { MarketplaceComponent } from './marketplace/marketplace.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { UserlistComponent } from './userlist/userlist.component';
     SellingComponent,
     CartComponent,
     GreetingComponent,
-    UserlistComponent
+    UserlistComponent,
+    MarketplaceComponent
     
     
   ],
