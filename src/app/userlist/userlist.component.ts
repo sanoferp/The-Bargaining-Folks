@@ -14,13 +14,10 @@ export class UserlistComponent implements OnInit {
   users: Observable<User[]>;
 
   constructor(private employeeService: UserService, private router: Router) { }
-
   ngOnInit() {
     this.reloadData();
   }
-
   reloadData() {
     this.users = this.employeeService.getEmployeesList();
   }
-
 }

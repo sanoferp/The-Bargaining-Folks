@@ -1,23 +1,23 @@
-<h2>hello</h2>
+<h1>Marketplace</h1>
 <div>
 <table>
     <thead>
       <tr>
-        <!--
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-        <th>Actions</th>
-        -->
+        <th class="mat-header-cell">Item</th>
+        <th>Quality</th>
+        <th>Desc</th>
+        <th>Price</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody style="background-color: gray;">
       <tr *ngFor="let listing of listings | async">
+        <ng-container>
         <td>{{listing.title}}</td>
         <td>{{listing.quality}}</td>
         <td>{{listing.description}}</td>
         <td>{{listing.price}}</td>
-        <hr class="my-4">
+      </ng-container>
+        <hr class="my-4"/>
       </tr>
     </tbody>
   </table>
