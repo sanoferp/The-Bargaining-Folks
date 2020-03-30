@@ -8,7 +8,8 @@ import { BuyingComponent } from './buying/buying.component';
 import { SellingComponent } from './selling/selling.component';
 import { CartComponent } from './cart/cart.component';
 import { GreetingComponent } from './greeting/greeting.component';
-import { EdituserComponent } from './edituser/edituser.component';
+import { UserlistComponent } from './userlist/userlist.component';
+import { MarketplaceComponent } from './marketplace/marketplace.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'greeting', component: GreetingComponent },
   { path: 'edit', component: EdituserComponent },
+  { path: 'userlist', component: UserlistComponent },
+  { path: 'marketplace', component: MarketplaceComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
 ];
 
