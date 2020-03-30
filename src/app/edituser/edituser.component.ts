@@ -19,11 +19,15 @@ export class EdituserComponent implements OnInit {
 
   ngOnInit() {
     let userId = localStorage.getItem("editUserId");
+    
+    /*
     if(!userId) {
       alert("Invalid action.")
       this.router.navigate(['edit']);
       return;
     }
+    */
+   
     this.editForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],

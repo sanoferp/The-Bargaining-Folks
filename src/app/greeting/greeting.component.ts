@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./greeting.component.css']
 })
 export class GreetingComponent implements OnInit {
-  message:string = 'Thankyou for shopping with us!!';
+  message:string = 'Thank you for shopping with us!!';
 
   constructor() { }
 
