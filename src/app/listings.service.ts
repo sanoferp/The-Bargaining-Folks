@@ -30,4 +30,8 @@ export class ListingsService {
   getEmployeesList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  getEmployeesSearchList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
 }

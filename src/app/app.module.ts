@@ -28,7 +28,7 @@ import { MarketplaceComponent } from './marketplace/marketplace.component';
     SellingComponent,
     CartComponent,
     GreetingComponent,
-    EdituserComponent
+    EdituserComponent,
     UserlistComponent,
     MarketplaceComponent
   ],

@@ -10,6 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 
 const routes: Routes = [
