@@ -5,26 +5,31 @@
   <h2 class="login-header">Sell your item here</h2>
   <form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
 
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.id.errors }">
-      <input type="id" placeholder="id" formControlName="id" value="1" required [(ngModel)]="product.id">
-    </p>
 
-    <div *ngIf="isSubmitted && formControls.id.errors" class="help-block">
-      <div *ngIf="formControls.id.errors.required">id</div>
-    </div>
-
+    <!--TITLE-->
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.item.errors }">
-      <input type="item" placeholder="Item" formControlName="item" value="Item"
-      required [(ngModel)]="product.item">
+      <input type="sellerId" placeholder="Id" formControlName="sellerId" value="Id"
+      required [(ngModel)]="listing.sellerId">
     </p>
 
     <div *ngIf="isSubmitted && formControls.item.errors" class="help-block">
-      <div *ngIf="formControls.item.errors.required">Item</div>
+      <div *ngIf="formControls.item.errors.required">Title</div>
     </div>
 
+    <!--TITLE-->
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.item.errors }">
+      <input type="item" placeholder="Item" formControlName="title" value="Title"
+      required [(ngModel)]="listing.title">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.item.errors" class="help-block">
+      <div *ngIf="formControls.item.errors.required">Title</div>
+    </div>
+
+    <!--DESCRIPTION-->
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.des.errors }">
-      <textarea type="des" placeholder="Description" formControlName="des" rows="3" 
-      value="Some description" required [(ngModel)]="product.des"></textarea>
+      <textarea type="des" placeholder="Description" formControlName="description" rows="3" 
+      value="Some description" required [(ngModel)]="listing.description"></textarea>
     </p>
 
     <div *ngIf="isSubmitted && formControls.des.errors" class="help-block">
@@ -32,25 +37,28 @@
     </div>
 
 
+    <!--PRICE-->
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.price.errors }">
       <input id="price" type="text" class="form-control" aria-describedby="netamount-desc" placeholder="Price"
-        formControlName="price" value="125" required [(ngModel)]="product.price">
+        formControlName="price" value="125" required [(ngModel)]="listing.price">
     </p>
 
     <div *ngIf="isSubmitted && formControls.price.errors" class="help-block">
-      <div *ngIf="formControls.price.errors.required">price</div>
+      <div *ngIf="formControls.price.errors.required">Price</div>
     </div>
 
+    <!--CATEGORY-->
     <p>
-      <select formControlName="category" class="category" required [(ngModel)]="product.category">
+      <select formControlName="category" class="category" required [(ngModel)]="listing.category">
         <option disabled>Select category</option>
         <option >Select category</option>
         <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
       </select>
     </p>
 
+    <!--QUALITY-->
     <p>
-      <select formControlName="quality"  class="quality" required [(ngModel)]="product.quality">
+      <select formControlName="quality"  class="quality" required [(ngModel)]="listing.quality">
         <option disabled>Select quality</option>
        <option *ngFor="let qual of qualities" [value]="qual.id">{{qual.name}}</option>
       </select>

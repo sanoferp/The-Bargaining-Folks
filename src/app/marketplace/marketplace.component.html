@@ -3,17 +3,19 @@
 <table>
     <thead>
       <tr>
-        <th class="mat-header-cell">Item</th>
+        <th>Item</th>
         <th>Quality</th>
-        <th>Desc</th>
+        <th>Category</th>
+        <th>Description</th>
         <th>Price</th>
       </tr>
     </thead>
-    <tbody style="background-color: gray;">
+    <tbody style="background-color: gray; border:1px">
       <tr *ngFor="let listing of listings | async">
         <ng-container>
         <td>{{listing.title}}</td>
         <td>{{listing.quality}}</td>
+        <td>{{listing.category}}</td>
         <td>{{listing.description}}</td>
         <td>{{listing.price}}</td>
       </ng-container>

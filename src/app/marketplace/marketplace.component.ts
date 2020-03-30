@@ -16,11 +16,6 @@ export class MarketplaceComponent implements OnInit {
   constructor(private listingService: ListingsService, private router: Router) { }
 
   ngOnInit() {
-    this.reloadData();
-  }
-
-  reloadData() {
     this.listings = this.listingService.getEmployeesList();
   }
-
 }

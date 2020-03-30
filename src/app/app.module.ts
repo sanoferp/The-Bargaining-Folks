@@ -30,7 +30,7 @@ import { MarketplaceComponent } from './marketplace/marketplace.component';
     GreetingComponent,
     EdituserComponent,
     UserlistComponent,
-    MarketplaceComponent
+    MarketplaceComponent,
   ],
   imports: [
     BrowserModule,
