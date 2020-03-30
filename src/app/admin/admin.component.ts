@@ -19,6 +19,9 @@ export class AdminComponent implements OnInit {
       this.router.navigateByUrl(navigateByUrl);
     }
   }
+  edit() {
+    this.navigate('edit');
+  }
 
   buying() {
     this.navigate('buying');
