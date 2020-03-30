@@ -30,4 +30,9 @@ export class UserService {
   getEmployeesList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  getEmployeeInfo(employee: Object){
+    return this.http.post(`${this.baseUrl}/login`, employee);
+  }
+
 }

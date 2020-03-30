@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 import { ListingsService } from "../listings.service";
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Listings } from "../listings";
 import { Router } from '@angular/router';
 import { AuthService } from  '../auth.service';
@@ -14,6 +15,8 @@ export class MarketplaceComponent implements OnInit {
 
   listings: Observable<Listings[]>;
 
+  loginForm: FormGroup;
+
   constructor(private authService: AuthService, private listingService: ListingsService, private router: Router) { }
 
   ngOnInit() {
@@ -25,4 +28,6 @@ export class MarketplaceComponent implements OnInit {
       this.router.navigateByUrl(navigateByUrl);
     }
   }
+
+  get formControls() { return this.loginForm.controls; }
 }
