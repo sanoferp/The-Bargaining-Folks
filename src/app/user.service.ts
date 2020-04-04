@@ -30,4 +30,8 @@ export class UserService {
   getEmployeesList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  checkUserLogin(loginInfo): Observable<any> {
+    return this.http.post(`${this.baseUrl}/login`, loginInfo);
+  }
 }
