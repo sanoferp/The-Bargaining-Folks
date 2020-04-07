@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Router } from  '@angular/router';
 import { User } from  '../user';
 import { AuthService } from  '../auth.service';
-import { UserService } from '../user.service'
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   isSubmitted  =  false;
+
+  // Used to show that attempt was unsuccessful
+  invalidLogin: boolean = false;
 
   constructor(private userservice: UserService, private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 
@@ -30,10 +33,34 @@ export class LoginComponent implements OnInit {
   get formControls() { return this.loginForm.controls; }
 
   login(){
+
     this.isSubmitted = true;
+
     if(this.loginForm.invalid){
       return;
     }
+
+    const loginData = {
+      email: this.loginForm.controls.email.value,
+      password: this.loginForm.controls.password.value
+    }
+
+    alert("Log in attempt: " + loginData.email + " " + loginData.password);
+
+    this.userService.checkUserLogin(loginData).subscribe(data  => {
+      
+      if(data){
+        this.authService.login(data);
+        
+        this.router.navigateByUrl('/admin');
+      }
+      else {
+        this.invalidLogin = true;
+      }
+
+
+    });
+
 /*
     var usersomething: any;
     usersomething = this.userservice.getEmployeeInfo(this.user)
@@ -47,15 +74,5 @@ export class LoginComponent implements OnInit {
 
     localStorage.setItem('userinfo',usersomething);
 */
-
-
-
-
-    this.authService.login(this.loginForm.value);
-    this.router.navigateByUrl('/admin');
   }
-
-
-
-
 }

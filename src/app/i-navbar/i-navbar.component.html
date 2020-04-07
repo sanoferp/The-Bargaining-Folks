@@ -1,0 +1,55 @@
+
+<div *ngIf="authService.isUserLoggedIn; then thenBlock else elseBlock" ></div>
+<ng-template #thenBlock>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="color: black;">
+  <div class="navbar-collapse order-1">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="admin" class="nav-link" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+        <a  routerLink="marketplace" class="nav-link" routerLinkActive="active">Marketplace</a>
+    </li>
+    <li class="nav-item">
+      <a  routerLink="sellinghome" class="nav-link" routerLinkActive="active">Your Listings</a>
+  </li>
+    </ul>
+  </div>
+  <div class="navbar navbar-expand-sm order-2">
+    <ul class="navbar-nav">
+      <li class="nav-item" >
+        <a style="float:right" routerLink="edit" class="nav-link" routerLinkActive="active">Account Info</a>
+      </li>
+      <li class="nav-item" >
+        <button class="btn btn-outline-secondary my-2 my-sm-0" routerLink="login" (click)="logUserOut()">Log Out</button>
+        <!--<a style="float:right" routerLink="login" class="nav-link" (click)="logUserOut()">Log Out</a>-->
+      </li>
+    </ul>
+  </div>
+  </nav><br/>
+</ng-template>
+
+<ng-template #elseBlock>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="color: black;">
+    <div class="navbar-collapse order-1">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <a  routerLink="marketplace" class="nav-link" routerLinkActive="active">Marketplace</a>
+      </li>
+      </ul>
+    </div>
+    <div class="navbar navbar-expand-sm order-2">
+      <ul class="navbar-nav">
+        <li class="nav-item" >
+          <a style="float:right" routerLink="register" class="nav-link" routerLinkActive="active">Register</a>
+        </li>
+        <li class="nav-item" >
+          <a style="float:right" routerLink="login" class="nav-link" routerLinkActive="active">Login</a>
+        </li>
+      </ul>
+    </div>
+    </nav><br/>
+</ng-template>
+
+
+

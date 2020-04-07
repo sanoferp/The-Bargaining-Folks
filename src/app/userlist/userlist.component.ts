@@ -18,6 +18,6 @@ export class UserlistComponent implements OnInit {
     this.reloadData();
   }
   reloadData() {
-    this.users = this.employeeService.getEmployeesList();
+    this.users = this.employeeService.getUsersList();
   }
 }

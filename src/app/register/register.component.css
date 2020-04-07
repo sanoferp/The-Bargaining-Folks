@@ -53,14 +53,17 @@
 }
 
 .login input[type="email"],
-.login input[type="password"] {
+.login input[type="password"],
+.login input[type="text"] {
   background: #fff;
   border-color: #bbb;
   color: #555;
 }
 
 .login input[type="email"]:focus,
-.login input[type="password"]:focus {
+.login input[type="password"]:focus,
+.login input[type="text"]
+ {
   border-color: #888;
 }
 

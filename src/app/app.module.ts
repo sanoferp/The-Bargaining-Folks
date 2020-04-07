@@ -16,6 +16,8 @@ import { GreetingComponent } from './greeting/greeting.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
+import { SellingHomeComponent } from './selling-home/selling-home.component';
+import { INavbarComponent } from './i-navbar/i-navbar.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { MarketplaceComponent } from './marketplace/marketplace.component';
     EdituserComponent,
     UserlistComponent,
     MarketplaceComponent,
+    SellingHomeComponent,
+    INavbarComponent,
   ],
   imports: [
     BrowserModule,

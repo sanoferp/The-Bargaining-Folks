@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,31 +9,33 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   private baseUrl = 'http://localhost:8880/api/test/users';
+  private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
 
   constructor(private http: HttpClient) { }
 
-  getEmployee(id: number): Observable<any> {
+  getUser(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createEmployee(employee: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, employee);
+  createUser(user: User): Observable<Object> {
+    alert("Posting: " + user);
+    return this.http.post(`${this.baseUrl}`, user, this.options);
   }
 
-  updateEmployee(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateUser(id: number, value: any): Observable<any> {
+    alert("reached user service");
+    return this.http.put(`${this.baseUrl}/${id}`, value, this.options);
   }
 
-  deleteEmployee(id: number): Observable<any> {
+  deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getEmployeesList(): Observable<any> {
+  getUsersList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  getEmployeeInfo(employee: Object){
-    return this.http.post(`${this.baseUrl}/login`, employee);
+  checkUserLogin(loginInfo): Observable<any> {
+    return this.http.post(`${this.baseUrl}/login`, loginInfo);
   }
-
 }

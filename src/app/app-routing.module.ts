@@ -11,6 +11,7 @@ import { GreetingComponent } from './greeting/greeting.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { SellingHomeComponent } from './selling-home/selling-home.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'edit', component: EdituserComponent },
   { path: 'userlist', component: UserlistComponent },
   { path: 'marketplace', component: MarketplaceComponent },
+  { path: 'sellinghome', component: SellingHomeComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
 ];
 
