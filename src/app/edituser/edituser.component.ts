@@ -20,12 +20,7 @@ export class EdituserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
-    /*
-    let userId = localStorage.getItem("editUserId");
-    if(!userId) {
-      this.router.navigate(['edit']);
-      return;
-    }*/
+    
     this.editForm = this.formBuilder.group({
       username: [this.activeUser.username, Validators.required],
       password: [this.activeUser.password, Validators.required],
@@ -66,8 +61,6 @@ export class EdituserComponent implements OnInit {
       else { //Unsuccessful update
         alert("Update was not processed");
       }
-
-
     });
   }
 

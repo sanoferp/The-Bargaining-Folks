@@ -6,5 +6,4 @@ export class Listings {
     quality: string;
     description: string;
     price: number;
-    uploadTime: Date;
 }

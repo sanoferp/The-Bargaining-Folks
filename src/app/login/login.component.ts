@@ -12,16 +12,19 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
+  user: User = new User();
+
   loginForm: FormGroup;
   isSubmitted  =  false;
 
   // Used to show that attempt was unsuccessful
   invalidLogin: boolean = false;
 
-  constructor(private authService: AuthService, private userService: UserService,
-      private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private userservice: UserService, private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.isSubmitted=true;
+
     this.loginForm  =  this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -58,6 +61,18 @@ export class LoginComponent implements OnInit {
 
     });
 
-  }
+/*
+    var usersomething: any;
+    usersomething = this.userservice.getEmployeeInfo(this.user)
+    .subscribe(data => console.log(data), error => console.log(error));
+    console.log(this.loginForm.value);
 
+    
+    if(usersomething == null){
+      return;
+    }
+
+    localStorage.setItem('userinfo',usersomething);
+*/
+  }
 }

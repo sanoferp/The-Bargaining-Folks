@@ -32,6 +32,7 @@ export class SellingComponent implements OnInit {
 
   constructor(private listingservice: ListingsService, private authService: AuthService, private router: Router, public formBuilder: FormBuilder, private productService: ProductService) { }
 
+
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       sellerid:['', Validators.required],
