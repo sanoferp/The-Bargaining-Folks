@@ -10,11 +10,11 @@ import { Router } from  '@angular/router';
 export class INavbarComponent implements OnInit {
 
   //userLoggedIn:boolean = this.checkLoggedIn();
-
+  
   ngOnInit(): void {
   }
   
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router) { }
 
 
   checkLoggedIn(){

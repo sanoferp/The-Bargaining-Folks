@@ -1,21 +1,32 @@
 <div class="col-md-6">
   <h2 class="text-center">Edit User</h2>
   <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
     <div class="form-group">
       <label for="email">Email address:</label>
-      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      <input type="text" formControlName="email" value={{activeUser.email}} name="email" class="form-control" id="email">
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input formControlName="username" value={{activeUser.username}} name="username" class="form-control" id="username">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="text" formControlName="password" value={{activeUser.password}} name="password" class="form-control" id="password">
     </div>
 
     <div class="form-group">
       <label for="firstName">First Name:</label>
-      <input formControlName="firstName" placeholder="First Name" name="fName" class="form-control" id="firstName">
+      <input formControlName="fName" value={{activeUser.fName}} name="fName" class="form-control" id="firstName">
     </div>
 
     <div class="form-group">
       <label for="lastName">Last Name:</label>
-      <input formControlName="lastName" placeholder="Last name" name="lName" class="form-control" id="lastName">
+      <input formControlName="lName" value={{activeUser.lName}} name="lName" class="form-control" id="lastName">
     </div>
 
-    <button class="btn btn-success">Update</button>
+    <input type="submit" class= "btn btn-success" value="Update">
   </form>
 </div>

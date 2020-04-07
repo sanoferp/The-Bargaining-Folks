@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Router } from  '@angular/router';
 import { User } from  '../user';
 import { AuthService } from  '../auth.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -11,28 +12,32 @@ import { AuthService } from  '../auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  loginForm: FormGroup;
+  registerForm: FormGroup;
   isSubmitted  =  false;
 
-  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.loginForm  =  this.formBuilder.group({
-      firstname:['', Validators.required],
-      lastname: ['', Validators.required],
+    this.registerForm  =  this.formBuilder.group({
+      fName:['', Validators.required],
+      lName: ['', Validators.required],
       email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required]
   });
   }
-  get formControls() { return this.loginForm.controls; }
+  get formControls() { return this.registerForm.controls; }
 
   register(){
-    console.log(this.loginForm.value);
+    console.log(this.registerForm.value);
     this.isSubmitted = true;
-    if(this.loginForm.invalid){
+    if(this.registerForm.invalid){
       return;
     }
-    this.authService.login(this.loginForm.value);
+
+    alert(JSON.stringify(this.registerForm.value));
+    this.userService.createUser(this.registerForm.value).subscribe(data => {});
+
     this.router.navigateByUrl('/login');
   }
 

@@ -13,7 +13,7 @@ export class AuthService {
   isUserLoggedIn:boolean = false;
 
   public login(userInfo: User){
-    localStorage.setItem('ACTIVE_USER', JSON.stringify(userInfo))
+    localStorage.setItem('ACTIVE_USER', JSON.stringify(userInfo));
     localStorage.setItem('ACCESS_TOKEN', "access_token");
     this.isUserLoggedIn = true;
   }
@@ -27,6 +27,10 @@ export class AuthService {
     localStorage.removeItem('ACTIVE_USER');
     localStorage.clear();
     this.isUserLoggedIn = false;
+  }
+
+  public updateLoggedInUser(userInfo: User){
+    localStorage.setItem('ACTIVE_USER', JSON.stringify(userInfo));
   }
 
   
