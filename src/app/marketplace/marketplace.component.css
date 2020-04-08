@@ -2,14 +2,26 @@
 h1 {
     text-align: center;
 }
+
 table {
     padding: 10%;
-    width: 100%;
+    width: 90%;
     overflow-x: auto;
     overflow-y: hidden;
     min-width: 10pc;
+    padding: 5%;
+    margin: 5%;
+    border: black;
+    border-width: 1px;
+    border-bottom: 1px;
 }
+
+
 th.mat-header-cell {
     text-align: left;
     max-width: 300px;
+}
+
+.testcolor {
+    color: grey;
 }

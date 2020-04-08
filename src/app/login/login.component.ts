@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   // Used to show that attempt was unsuccessful
   invalidLogin: boolean = false;
 
-  constructor(private userservice: UserService, private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private userService: UserService, private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.isSubmitted=true;

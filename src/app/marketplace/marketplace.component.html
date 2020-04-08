@@ -1,31 +1,35 @@
 <h1>Marketplace</h1>
 <div>
-  <form style="width: 100%; text-align: center;">
-      <input  type="text" placeholder="Search..."/>
-
+  <form [formGroup]="searchForm" style="width: 100%; text-align: center;" (ngSubmit)="onSubmit()">
+      <input formControlName="search" type="text" placeholder="Search..."/>
       <button type="submit" value="Go!">Go!</button>
+  </form>
+  <form (ngSubmit)="onReset()">
+    <button type="submit" >Reset!</button>
   </form>
 <br/>
 </div>
 <div>
-<table>
+<table class="table-hover">
     <thead>
       <tr>
         <th>Item</th>
         <th>Quality</th>
         <th>Category</th>
-        <th>Description</th>
+        <!--<th>Description</th>-->
         <th>Price</th>
+        <th></th>
       </tr>
     </thead>
-    <tbody style="background-color: gray; border:1px">
+    <tbody class="testcolor">
       <tr *ngFor="let listing of listings | async">
         <ng-container>
         <td>{{listing.title}}</td>
         <td>{{listing.quality}}</td>
         <td>{{listing.category}}</td>
-        <td>{{listing.description}}</td>
+        <!--<td>{{listing.description}}</td>-->
         <td>{{listing.price}}</td>
+        <td class="buybutton"><form><button type="submit">Buy</button></form></td>
       </ng-container>
         <hr class="my-4"/>
       </tr>
