@@ -46,7 +46,6 @@ export class MarketplaceComponent implements OnInit {
   }*/
 
   onSubmit() {
-    alert("Search Result" + this.searchForm.controls.search.value);
 
     this.newList = false;
     this.onRun();
@@ -55,7 +54,6 @@ export class MarketplaceComponent implements OnInit {
   buyItem(itemId:number){
     
     const userIdData = {idData : JSON.parse(localStorage.getItem('ACTIVE_USER')).id}; 
-    alert("User " + userIdData.idData +  "is buying somethign!! $$$$ " + itemId);
     this.listingService.updateBoughtListing(itemId, userIdData).subscribe(data => {
       if (data){
         this.ngOnInit();
@@ -80,7 +78,7 @@ export class MarketplaceComponent implements OnInit {
         this.ngOnInit();
       }
       else { //Unsuccessful update
-        alert("Update was not processed");
+        //alert("Update was not processed");
       }
     });
   }

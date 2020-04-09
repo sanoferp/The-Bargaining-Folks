@@ -1,15 +1,12 @@
 <h1>Marketplace</h1>
-<div>
-  <form [formGroup]="searchForm" style="width: 100%; text-align: center;" (ngSubmit)="onSubmit()">
+<div style="text-align: center;">
+  <form [formGroup]="searchForm" style="text-align: center; display: inline;" (ngSubmit)="onSubmit()">
       <input formControlName="search" type="text" placeholder="Search..."/>
       <button type="submit" value="Go!">Go!</button>
-  </form>
-  <div id="resetbutton">
-  <form (ngSubmit)="onReset()" >
+      </form>
+  <form (ngSubmit)="onReset()" style="display:inline">
     <button type="submit" >Reset!</button>
   </form>
-  </div>
-<br/>
 </div>
 <div>
 <table class="table table-border table-striped">
@@ -18,7 +15,6 @@
         <th>Item</th>
         <th>Quality</th>
         <th>Category</th>
-        <!--<th>Description</th>-->
         <th>Price</th>
         <th></th>
       </tr>
@@ -29,7 +25,6 @@
         <td>{{listing.title}}</td>
         <td>{{listing.quality}}</td>
         <td>{{listing.category}}</td>
-        <!--<td>{{listing.description}}</td>-->
         <td>{{listing.price}}</td>
         <td>
           <form (ngSubmit)="buyItem(listing.id)">

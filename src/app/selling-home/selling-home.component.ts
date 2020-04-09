@@ -25,7 +25,6 @@ export class SellingHomeComponent implements OnInit {
   cancelItem(itemId:number){
     
     const userIdData = {idData : JSON.parse(localStorage.getItem('ACTIVE_USER')).id}; 
-    alert("User " + userIdData.idData +  "is canceling somethign!! $$$$ " + itemId);
     this.listingService.updateCancelListing(itemId, userIdData).subscribe(data => {
       if (data){
         this.ngOnInit();

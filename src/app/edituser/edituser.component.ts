@@ -47,9 +47,7 @@ export class EdituserComponent implements OnInit {
   }
 
   onSubmit() {
-    alert("updating user info" + this.activeUser.id);
     this.isSubmitted = true;
-    alert(JSON.stringify(this.editForm.value));
 
     this.userService.updateUser(this.activeUser.id, JSON.stringify(this.editForm.value)).subscribe(data  => {
       
@@ -59,7 +57,7 @@ export class EdituserComponent implements OnInit {
         this.router.navigateByUrl('/admin'); //Maybe just reload this page?
       }
       else { //Unsuccessful update
-        alert("Update was not processed");
+        //alert("Update was not processed");
       }
     });
   }

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.controls.password.value
     }
 
-    alert("Log in attempt: " + loginData.email + " " + loginData.password);
+    //alert("Log in attempt: " + loginData.email + " " + loginData.password);
 
     this.userService.checkUserLogin(loginData).subscribe(data  => {
       

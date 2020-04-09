@@ -18,12 +18,10 @@ export class UserService {
   }
 
   createUser(user: User): Observable<Object> {
-    alert("Posting: " + user);
     return this.http.post(`${this.baseUrl}`, user, this.options);
   }
 
   updateUser(id: number, value: any): Observable<any> {
-    alert("reached user service");
     return this.http.put(`${this.baseUrl}/${id}`, value, this.options);
   }
 

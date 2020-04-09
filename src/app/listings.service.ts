@@ -34,12 +34,10 @@ export class ListingsService {
   }
 
   getEmployeesSearchList(search: string): Observable<any> {
-    alert("I am here!" + search);
     return this.http.get(`${this.baseUrl}/search/${search}`);
   }
 
   updateBoughtListing(id: number, userIdData): Observable<any>{
-    alert("id"+id+"yoyoyoyooy" + userIdData.idData);
     return this.http.put(`${this.baseUrl}/purchase/${id}`, userIdData);
   }
 

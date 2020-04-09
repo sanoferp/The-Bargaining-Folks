@@ -18,7 +18,7 @@ export class INavbarComponent implements OnInit {
 
 
   checkLoggedIn(){
-    alert("loggedin: " + (localStorage.getItem('ACCESS_TOKEN') !== null ))
+    //alert("loggedin: " + (localStorage.getItem('ACCESS_TOKEN') !== null ))
     return localStorage.getItem('ACCESS_TOKEN') !== null;
 
   }
