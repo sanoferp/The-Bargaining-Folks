@@ -20,7 +20,7 @@ export class SellingComponent implements OnInit {
   categories: any = [ {id:1,name:'Appliances'}, 
                       {id:2,name:'Clothing'}, 
                       {id:3,name:'Electronics'}, 
-                      {id:4, name:'Misc'}
+                      {id:4,name:'Misc'}
                     ]
   qualities: any = [{id:1,name:'New'}, 
                     {id:2,name:'Used-like new'}, 
@@ -30,6 +30,7 @@ export class SellingComponent implements OnInit {
 
   loginForm: FormGroup;
   isSubmitted = false;
+  activeUser: User = JSON.parse(localStorage.getItem('ACTIVE_USER'));
 
   constructor(private listingservice: ListingsService, private authService: AuthService, private router: Router, public formBuilder: FormBuilder, private productService: ProductService) { }
 
@@ -43,6 +44,7 @@ export class SellingComponent implements OnInit {
       quality: ['', Validators.required]
 
     });
+
   }
 
   listing : Listings = new Listings();

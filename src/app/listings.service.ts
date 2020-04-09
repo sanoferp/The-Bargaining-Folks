@@ -31,8 +31,9 @@ export class ListingsService {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  getEmployeesSearchList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  getEmployeesSearchList(search: string): Observable<any> {
+    alert("I am here!" + search);
+    return this.http.get(`${this.baseUrl}/search/${search}`);
   }
 
   updateBoughtListing(id: number, userId: number): Observable<any>{

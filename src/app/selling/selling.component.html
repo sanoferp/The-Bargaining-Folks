@@ -6,16 +6,17 @@
   <form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
 
     <!--TITLE-->
+    <p>Item Name:</p>
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.item.errors }">
-      <input type="item" placeholder="Item" formControlName="title" value="Title"
-      required [(ngModel)]="listing.title">
+      <input type="item" placeholder="Item" formControlName="title" required [(ngModel)]="listing.title">
     </p>
 
     <div *ngIf="isSubmitted && formControls.item.errors" class="help-block">
-      <div *ngIf="formControls.item.errors.required">Title</div>
-    </div>
+      <div *ngIf="formControls.item.errors.required">Item</div>
+    </div><hr/>
 
     <!--DESCRIPTION-->
+    <p>Item Description:</p>
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.des.errors }">
       <textarea type="des" placeholder="Description" formControlName="description" rows="3" 
       value="Some description" required [(ngModel)]="listing.description"></textarea>
@@ -23,28 +24,31 @@
 
     <div *ngIf="isSubmitted && formControls.des.errors" class="help-block">
       <div *ngIf="formControls.des.errors.required">Description</div>
-    </div>
+    </div><hr/>
 
 
     <!--PRICE-->
+    <p>Price:</p>
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.price.errors }">
       <input id="price" type="text" class="form-control" aria-describedby="netamount-desc" placeholder="Price"
-        formControlName="price" value="125" required [(ngModel)]="listing.price">
+        formControlName="price" required [(ngModel)]="listing.price">
     </p>
 
     <div *ngIf="isSubmitted && formControls.price.errors" class="help-block">
       <div *ngIf="formControls.price.errors.required">Price</div>
-    </div>
+    </div><hr/>
 
     <!--CATEGORY-->
+    <p>Category</p>
     <p>
       <select formControlName="category" class="category" required [(ngModel)]="listing.category">
         <option disabled> Select Category</option>
         <option *ngFor="let cat of categories" [value]="cat.name">{{cat.name}}</option>
       </select>
-    </p>
+    </p><hr/>
 
     <!--QUALITY-->
+    <p>Product Quality</p>
     <p>
       <select formControlName="quality"  class="quality" required [(ngModel)]="listing.quality">
         <option disabled>Select quality</option>
