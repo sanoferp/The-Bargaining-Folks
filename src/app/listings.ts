@@ -6,4 +6,6 @@ export class Listings {
     quality: string;
     description: string;
     price: number;
+    buyerId: number;
+    status: string;
 }
