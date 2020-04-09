@@ -10,7 +10,7 @@
 <br/>
 </div>
 <div>
-<table class="table-hover">
+<table class="table table-border table-striped">
     <thead>
       <tr>
         <th>Item</th>
@@ -29,7 +29,11 @@
         <td>{{listing.category}}</td>
         <!--<td>{{listing.description}}</td>-->
         <td>{{listing.price}}</td>
-        <td class="buybutton"><form><button type="submit">Buy</button></form></td>
+        <td>
+          <form>
+            <button type="submit" class="btn btn-success">Buy</button>
+          </form>
+        </td>
       </ng-container>
         <hr class="my-4"/>
       </tr>
