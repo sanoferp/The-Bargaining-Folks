@@ -10,9 +10,41 @@
 
     <form (ngSubmit)="createListing()">
 
-        <input type="submit">Post New
+        <button type="submit">Post new</button>
 
     </form>
 </div>
 
 <!-- Listing Table Component-->
+
+<div>
+    <table class="table table-border table-striped">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quality</th>
+            <th>Category</th>
+            <!--<th>Description</th>-->
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="testcolor">
+          <tr *ngFor="let listing of listings | async">
+            <ng-container>
+            <td>{{listing.title}}</td>
+            <td>{{listing.quality}}</td>
+            <td>{{listing.category}}</td>
+            <!--<td>{{listing.description}}</td>-->
+            <td>{{listing.price}}</td>
+            <td>
+              <form (ngSubmit)="cancelItem(listing.id)">
+                <button type="submit" class="btn btn-danger" >Cancel</button>
+              </form>
+            </td>
+          </ng-container>
+            <hr class="my-4"/>
+          </tr>
+        </tbody>
+      </table>
+    </div>
