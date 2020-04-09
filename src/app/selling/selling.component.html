@@ -5,17 +5,6 @@
   <h2 class="login-header">Sell your item here</h2>
   <form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
 
-
-    <!--TITLE-->
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.item.errors }">
-      <input type="sellerId" placeholder="Id" formControlName="sellerId" value="Id"
-      required [(ngModel)]="listing.sellerId">
-    </p>
-
-    <div *ngIf="isSubmitted && formControls.item.errors" class="help-block">
-      <div *ngIf="formControls.item.errors.required">Title</div>
-    </div>
-
     <!--TITLE-->
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.item.errors }">
       <input type="item" placeholder="Item" formControlName="title" value="Title"
