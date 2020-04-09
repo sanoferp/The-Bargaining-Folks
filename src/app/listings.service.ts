@@ -35,4 +35,24 @@ export class ListingsService {
     alert("I am here!" + search);
     return this.http.get(`${this.baseUrl}/search/${search}`);
   }
+
+  updateBoughtListing(id: number, userId: number): Observable<any>{
+    return this.http.put(`${this.baseUrl}/purchase/${id}`, userId);
+  }
+
+  updateCancelListing(id: number, userId: number): Observable<any>{
+    return this.http.put(`${this.baseUrl}/cancel/${id}`, userId);
+  }
+
+  getUserActiveList(userId: number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/selfactive`, userId);
+  }
+
+  getUserSoldList(userId: number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/selfsold`, userId);
+  }
+
+  getUserBoughtList(userId: number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/selfbought`, userId);
+  }
 }
