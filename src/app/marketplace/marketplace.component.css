@@ -3,6 +3,10 @@ h1 {
     text-align: center;
 }
 
+#resetbutton {
+    align-content: center;
+}
+
 table {
     padding: 10%;
     width: 90%;

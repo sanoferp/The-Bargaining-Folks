@@ -1,27 +1,57 @@
-<div style="text-align:center">
-  <div class="jumbotron">
-    <p>
-      <button (click)="edit()">
-        Edit
-      </button>
-    </p>
-    
-    <p>
-      <button (click)="buying()">
-        Buying
-      </button>
-    </p>
-    
-    <p>
-      <button (click)="selling()">
-        Selling
-      </button>
-    </p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p>Items Bought</p>
 
-    <p>
-      <button (click)="logout()">
-        Logout
-      </button>
-    </p>
+    <table class="table table-border table-striped">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Category</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody class="testcolor">
+      <tr *ngFor="let listing of boughtlistings | async">
+        <ng-container>
+        <td>{{listing.title}}</td>
+        <td>{{listing.category}}</td>
+        <td>{{listing.price}}</td>
+      </ng-container>
+        <hr class="my-4"/>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+    </div>
+    <div class="col">
+      <p>Items Sold</p>
+
+      <table class="table table-border table-striped">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody class="testcolor">
+          <tr *ngFor="let listing of soldlistings | async">
+            <ng-container>
+            <td>{{listing.title}}</td>
+            <td>{{listing.category}}</td>
+            <td>{{listing.price}}</td>
+          </ng-container>
+            <hr class="my-4"/>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+    </div>
   </div>
 </div>

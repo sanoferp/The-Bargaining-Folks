@@ -4,9 +4,11 @@
       <input formControlName="search" type="text" placeholder="Search..."/>
       <button type="submit" value="Go!">Go!</button>
   </form>
-  <form (ngSubmit)="onReset()">
+  <div id="resetbutton">
+  <form (ngSubmit)="onReset()" >
     <button type="submit" >Reset!</button>
   </form>
+  </div>
 <br/>
 </div>
 <div>
@@ -30,8 +32,8 @@
         <!--<td>{{listing.description}}</td>-->
         <td>{{listing.price}}</td>
         <td>
-          <form>
-            <button type="submit" class="btn btn-success">Buy</button>
+          <form (ngSubmit)="buyItem(listing.id)">
+            <button type="submit" class="btn btn-success" >Buy</button>
           </form>
         </td>
       </ng-container>

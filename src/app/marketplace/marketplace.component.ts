@@ -52,6 +52,18 @@ export class MarketplaceComponent implements OnInit {
     this.onRun();
   }
 
+  buyItem(itemId:number){
+    
+    const userIdData = {idData : JSON.parse(localStorage.getItem('ACTIVE_USER')).id}; 
+    alert("User " + userIdData.idData +  "is buying somethign!! $$$$ " + itemId);
+    this.listingService.updateBoughtListing(itemId, userIdData).subscribe(data => {
+      if (data){
+        this.ngOnInit();
+      }
+    });
+    
+  }
+
   onRun(){
 
 
