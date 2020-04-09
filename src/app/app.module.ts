@@ -18,6 +18,7 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { SellingHomeComponent } from './selling-home/selling-home.component';
 import { INavbarComponent } from './i-navbar/i-navbar.component';
+import { ListingComponent } from './listing/listing.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { INavbarComponent } from './i-navbar/i-navbar.component';
     MarketplaceComponent,
     SellingHomeComponent,
     INavbarComponent,
+    ListingComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@ import { Listings } from '../listings';
 })
 export class SellingComponent implements OnInit {
   submitted = false;
+  newItem: Listings;
 
   categories: any = [ {id:1,name:'Appliances'}, 
                       {id:2,name:'Clothing'}, 
@@ -36,7 +37,6 @@ export class SellingComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      sellerid:[this.activeUser.id, Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
       price: ['', Validators.required],
@@ -49,25 +49,37 @@ export class SellingComponent implements OnInit {
 
   listing : Listings = new Listings();
 
-  newUser(): void {
-    this.submitted = false;
-    this.listing = new Listings();
-  }
-
   save() {
-    this.listingservice.createListing(this.listing)
+
+    this.newItem = new Listings();
+    this.newItem.title = this.loginForm.controls.title.value;
+    this.newItem.description = this.loginForm.controls.description.value;
+    this.newItem.price = this.loginForm.controls.price.value;
+    this.newItem.category = this.loginForm.controls.category.value;
+    this.newItem.quality = this.loginForm.controls.quality.value;
+    this.newItem.sellerId = JSON.parse(localStorage.getItem('ACTIVE_USER')).id;
+    this.newItem.status = "active";
+    this.newItem.buyerId = null;
+
+
+
+    this.listingservice.createListing(this.newItem)
       .subscribe(data => console.log(data), error => console.log(error));
     this.listing = new Listings();
-    this.gotoList();
+    this.router.navigateByUrl('/sellinghome');
   }
 
   onSubmit() {
-    this.submitted = true;
-    this.save();    
+    if(this.authService.isLoggedIn()){
+      this.submitted = true;
+      this.save();    
+    }
+    else{
+      alert("You must be logged in to sell an item");
+    }
+
   }
-  gotoList(){
-    this.router.navigateByUrl('/buying');
-  }
+
   get formControls() { return this.loginForm.controls; }
   }
 
